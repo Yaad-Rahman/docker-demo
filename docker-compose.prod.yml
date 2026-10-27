@@ -11,7 +11,7 @@ services:
 
   db:
     image: mongo:7
-    volumnes:
+    volumes:
       - mongo-prod-data:/data/db
     restart: unless-stopped
 
