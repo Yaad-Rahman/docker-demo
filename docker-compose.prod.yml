@@ -1,0 +1,19 @@
+services:
+  app:
+    image: ghcr.io/yaad-rahman/docker-demo:latest
+    ports:
+      - "8080:3000"
+    environment:
+      - MONGO_URL=mongodb://db:27017/demo
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: mongo:7
+    volumnes:
+      - mongo-prod-data:/data/db
+    restart: unless-stopped
+
+volumes:
+  mongo-prod-data:
